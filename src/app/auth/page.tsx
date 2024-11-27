@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
-import SkeletonLoader from "./skeleton";
-import Card from "./card";
+// import SkeletonLoader from "./skeleton";
+// import Card from "./card";
 import { Skeleton } from "@nextui-org/react";
 
 export default function Page() {
