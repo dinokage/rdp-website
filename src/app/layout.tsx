@@ -40,7 +40,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
           <NextUIProvider>
-          <div className="relative flex w-full flex-col items-center justify-center pb-0 md:pb-[80px]">
+          <div className="relative flex w-full flex-col items-center justify-center pb-0">
             <SiteHeader />
             </div>
             {children}
