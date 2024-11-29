@@ -1,4 +1,5 @@
 import { Globe } from "@/components/globe";
+import Pricing from "@/components/pricing";
 import { TypewriterEffectSmoothDemo } from "@/components/typewriter-demo";
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <div className="w-full flex justify-center mt-6 hidden sm:flex">
         <div className="w-[90%]">
           <Globe />
+          <Pricing />
         </div>
       </div>
     </div>
