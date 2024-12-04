@@ -30,8 +30,6 @@
     "papaparse": "^5.4.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-element-to-jsx-string": "^15.0.0",
-    "react-loading-skeleton": "^3.5.0",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.170.0",
@@ -39,13 +37,11 @@
     "vaul": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
     "@types/papaparse": "^5.3.15",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.18",
-    "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
