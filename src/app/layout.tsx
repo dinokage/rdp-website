@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/theme-provider"
-import {NextUIProvider} from "@nextui-org/react";
+// import {NextUIProvider} from "@nextui-org/react";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
@@ -36,15 +36,15 @@ export default function RootLayout({
         <ThemeProvider
             attribute="class"
             defaultTheme="dark"
-            enableSystem
+            
             disableTransitionOnChange
           >
-          <NextUIProvider>
+          
           <div className="relative flex w-full flex-col items-center justify-center pb-0">
             <SiteHeader />
             </div>
             {children}
-        </NextUIProvider>
+      
         </ThemeProvider>
         
       </body>
