@@ -23,10 +23,10 @@ export const GlobalDatabase: FunctionComponent = () => {
       glowColor: [0.15, 0.15, 0.15],
       markerColor: [100, 100, 100],
       markers: [
-        { location: [37.7595, -122.4367], size: 0.03 }, // San Francisco
-        { location: [40.7128, -74.006], size: 0.03 }, // New York City
-        { location: [35.6895, 139.6917], size: 0.03 }, // Tokyo
-        { location: [28.7041, 77.1025], size: 0.03 }, // Delhi
+        //{ location: [37.7595, -122.4367], size: 0.03 }, // San Francisco
+        //{ location: [40.7128, -74.006], size: 0.03 }, // New York City
+        //{ location: [35.6895, 139.6917], size: 0.03 }, // Tokyo
+        //{ location: [28.7041, 77.1025], size: 0.03 }, // Delhi
       ],
       onRender: (state: { phi?: number }) => {
         state.phi = phi
@@ -56,10 +56,9 @@ export const GlobalDatabase: FunctionComponent = () => {
   ]
 
   return (
-    <div className="px-3">
       <section
         aria-labelledby="global-database-title"
-        className="relative mx-auto mt-28 flex w-full flex-col items-center justify-center overflow-hidden bg-gray-950 pt-24 shadow-xl shadow-black/30 md:mt-40"
+        className="relative mx-auto flex w-full flex-col items-center justify-center overflow-hidden pt-24 shadow-xl shadow-black/30"
       >
         <div className="absolute top-[17rem] size-[40rem] rounded-full bg-indigo-800 blur-3xl md:top-[20rem]" />
         <div className="z-10 inline-block rounded-lg border border-indigo-400/20 bg-indigo-800/20 px-3 py-1.5 font-semibold uppercase leading-4 tracking-tight sm:text-sm">
@@ -96,6 +95,5 @@ export const GlobalDatabase: FunctionComponent = () => {
           </div>
         </div>
       </section>
-    </div>
   )
 }
