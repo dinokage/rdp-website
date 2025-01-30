@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/theme-provider"
 // import {NextUIProvider} from "@nextui-org/react";
 import { SiteHeader } from "@/components/site-header";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
 const geistSans = localFont({
@@ -43,8 +44,8 @@ export default function RootLayout({
           <div className="relative flex w-full flex-col items-center justify-center pb-0">
             <SiteHeader />
             </div>
-            {children}
-      
+             {children}
+          <SpeedInsights/>
         </ThemeProvider>
         
       </body>
