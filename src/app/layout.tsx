@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/theme-provider"
 // import {NextUIProvider} from "@nextui-org/react";
 import { SiteHeader } from "@/components/site-header";
+import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
@@ -45,6 +46,7 @@ export default function RootLayout({
             <SiteHeader />
             </div>
              {children}
+          <Analytics/>
           <SpeedInsights/>
         </ThemeProvider>
         
