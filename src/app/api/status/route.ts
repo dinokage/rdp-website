@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic"; 
+
 const BETTERSTACK_API_URL = "https://betteruptime.com/api/v2/status-pages/196085";
 
 export async function GET() {
