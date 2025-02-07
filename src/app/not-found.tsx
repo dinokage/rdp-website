@@ -1,13 +1,14 @@
 'use client';
 
-import React from 'react';
+import { useEffect, useState } from "react";
 import { ArrowLeft, Server, Wifi, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, Variants } from 'framer-motion';
+import StatusIndicator from "@/components/StatusIndicator";
 
 const containerVariants: Variants = {
-  hidden: { 
-    opacity: 0 
+  hidden: {
+    opacity: 0
   },
   visible: {
     opacity: 1,
@@ -19,22 +20,22 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { 
-    y: 20, 
-    opacity: 0 
+  hidden: {
+    y: 20,
+    opacity: 0
   },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { 
-      duration: 0.5 
+    transition: {
+      duration: 0.5
     }
   }
 };
 
 const serverVariants: Variants = {
-  initial: { 
-    scale: 1 
+  initial: {
+    scale: 1
   },
   animate: {
     scale: [1, 1.1, 1],
@@ -47,16 +48,32 @@ const serverVariants: Variants = {
 };
 
 const NotFound = () => {
+  const [status, setStatus] = useState<"operational" | "downtime" | "degraded" | "maintenance" | "loading">("loading");
+  useEffect(() => {
+    async function fetchStatus() {
+      try {
+        const res = await fetch("/api/status");
+        const data = await res.json();
+        setStatus(data.status || "downtime");
+      } catch (error) {
+        console.error("Error fetching status:", error);
+        setStatus("downtime");
+      }
+    }
+
+    fetchStatus();
+  }, []);
+
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      <motion.div 
+      <motion.div
         className="max-w-2xl w-full text-center space-y-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Server Icon Grid */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-3 gap-4 justify-items-center mb-8"
           variants={itemVariants}
         >
@@ -67,7 +84,7 @@ const NotFound = () => {
           >
             <Server className="text-blue-500 w-12 h-12" />
           </motion.div>
-          
+
           <motion.div
             initial={{ rotate: 0 }}
             animate={{ rotate: 360 }}
@@ -75,7 +92,7 @@ const NotFound = () => {
           >
             <AlertCircle className="text-red-500 w-16 h-16" />
           </motion.div>
-          
+
           <motion.div
             variants={serverVariants}
             animate="animate"
@@ -84,9 +101,9 @@ const NotFound = () => {
             <Server className="text-blue-500 w-12 h-12" />
           </motion.div>
         </motion.div>
-        
+
         {/* Connection Lines Animation */}
-        <motion.div 
+        <motion.div
           className="relative h-2 mx-auto w-3/4 mb-8"
           variants={itemVariants}
         >
@@ -117,7 +134,7 @@ const NotFound = () => {
         </motion.div>
 
         {/* Error Message */}
-        <motion.div 
+        <motion.div
           className="space-y-4"
           variants={itemVariants}
         >
@@ -126,7 +143,7 @@ const NotFound = () => {
           </motion.h1>
           <h2 className="text-2xl font-semibold text-gray-300">Page Not Found</h2>
           <p className="text-gray-400 max-w-md mx-auto">
-            The requested resource could not be located on our servers. 
+            The requested resource could not be located on our servers.
             Please check the URL or return to the dashboard.
           </p>
         </motion.div>
@@ -144,21 +161,18 @@ const NotFound = () => {
             >
               <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             </motion.div>
-            Return to Dashboard
+            Return to Homepage
           </Button>
         </motion.div>
 
-        {/* Server Status Indicator */}
-        <div className="mt-12 flex items-center justify-center space-x-2">
-          <div className="relative w-6 h-6 flex items-center justify-center">
-            {/* Expanding pulse ring */}
-            <div className="absolute w-4 h-4 border-1.5 border-green-500 rounded-full animate-[pulse_2s_ease-out_infinite] opacity-0" />
-            {/* Core dot */}
-            <div className="relative h-2 w-2 bg-green-500 rounded-full" />
-          </div>
-          <span className="text-sm text-gray-400">All Systems Operational</span>
-        </div>
-      
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <StatusIndicator status={status} />
+        </motion.div>
+
       </motion.div>
     </div>
   );
