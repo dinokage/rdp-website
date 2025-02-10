@@ -5,6 +5,7 @@ import {NextUIProvider} from "@nextui-org/react";
 import { SiteHeader } from "@/components/site-header";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Footer from "@/components/ui/Footer";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -37,6 +38,7 @@ export default function RootLayout({
             <SiteHeader />
             </div>
              {children}
+            <Footer/>
           <Analytics/>
           <SpeedInsights/>
         </ThemeProvider></NextUIProvider>
