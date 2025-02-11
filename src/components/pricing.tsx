@@ -104,7 +104,7 @@ const Pricing = () => {
 
   return (
     <section id="pricing" className="py-14 px-4 md:px-8">
-      <div className="max-w-screen-xl mx-auto flex flex-col gap-8">
+      <div className="max-w-(--breakpoint-xl) mx-auto flex flex-col gap-8">
         <div className="text-center max-w-5xl mx-auto">
           <h4 className="text-xl font-bold tracking-tight text-black dark:text-white">Pricing</h4>
           <h2 className="text-5xl font-bold tracking-tight text-black dark:text-white sm:text-6xl">
@@ -182,7 +182,7 @@ const Pricing = () => {
                 )}
               </Button>
 
-              <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-500/30 to-neutral-200/0" />
+              <hr className="m-0 h-px w-full border-none bg-linear-to-r from-neutral-200/0 via-neutral-500/30 to-neutral-200/0" />
 
               {price.features.length > 0 && (
                 <ul className="flex flex-col gap-2">

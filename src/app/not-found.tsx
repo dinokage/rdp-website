@@ -108,7 +108,7 @@ const NotFound = () => {
           variants={itemVariants}
         >
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500 to-transparent"
+            className="absolute inset-0 bg-linear-to-r from-transparent via-blue-500 to-transparent"
             animate={{
               opacity: [0.3, 1, 0.3],
               scaleX: [0.8, 1.2, 0.8],

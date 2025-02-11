@@ -32,7 +32,7 @@ const RadioGroupItem = React.forwardRef<
     <RadioGroupPrimitives.Item
       ref={forwardedRef}
       className={cn(
-        "group relative flex size-8 appearance-none items-center justify-center outline-none",
+        "group relative flex size-8 appearance-none items-center justify-center outline-hidden",
         className,
       )}
       {...props}

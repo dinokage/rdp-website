@@ -111,7 +111,7 @@ export const Map = () => {
         <div className="absolute top-9 right-56">
           <div className="relative flex items-center justify-center">
             <RiSignalTowerFill className="z-10 h-5 w-5 text-white" />
-            <div className="absolute h-10 w-10 rounded-full bg-gray-950 ring-1 ring-white/15 backdrop-blur-sm"></div>
+            <div className="absolute h-10 w-10 rounded-full bg-gray-950 ring-1 ring-white/15 backdrop-blur-xs"></div>
           </div>
         </div>
       </div>
